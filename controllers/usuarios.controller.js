@@ -1,4 +1,6 @@
 const {response,request} = require('express');
+const Usuario = require('../models/usuario');
+
 
 const usuariosGet=(req=request, res=response) => {
     //tengo el resto de parametros y les asigno un valor por defecto
@@ -7,11 +9,13 @@ const usuariosGet=(req=request, res=response) => {
         msg: '',
     });
 }
+
 const usuariosPost=(req, res=response) => {
     const body=req.body;
+    // const usuario = new Usuario(body);
     res.json({
         msg: 'post-usuario-controller',
-        body
+        // usuario
     });
 }
 const usuariosPut=(req, res=response) => {

@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 
 const dbConnection=async()=>{
     try {
-        await mongoose.connect('mongodb://user_node:p1C8zB9XfjuApS5R@cluster0.4joz5.mongodb.net/Prueba?retryWrites=true&w=majority',{
+        await mongoose.connect(process.env.MONGO_DB,{
             useNewUrlParser:true,
             useUnifiedTopology:true,
-            useCreateIndex:true,
-            useFindAndModify:false,            
+            // useCreateIndex:true,
+            // useFindAndModify:false,            
         });
         console.log('base de datos conectada');
     } catch (error) {

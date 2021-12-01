@@ -5,24 +5,26 @@ const {dbConnection} = require('../database/config')
 class Server {
 	constructor() {
 		this.app = express();
-		this.routes();
 		this.usuariosPath = '/api/usuarios';
-
+		
         //Conectar a base de datos
-
+		
         this.conectarDB();
-
+		
 		//Middlewares
 		this.middlewares();
-		//Rutas de la app
+
+		//Rutas de la app, muy importante cargar primero los middlewares que las rutas, 
+		//para que se procese adecuadamente el body
 		this.port = process.env.PORT;
+		this.routes();
 	}
 	middlewares() {
 		//Cors para ver quien puede acceder a mi api
 		this.app.use(cors());
         // Lectura y parseo del body
         this.app.use(express.json());
-
+		// this.app.use(bodyParser.urlencoded({ extended: false }))
 		//directorio publico
 		this.app.use(express.static('public'));
 	}
