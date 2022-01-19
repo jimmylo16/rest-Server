@@ -9,7 +9,7 @@ class Server {
 		
         //Conectar a base de datos
 		
-        this.conectarDB();
+        // this.conectarDB();
 		
 		//Middlewares
 		this.middlewares();
@@ -29,12 +29,14 @@ class Server {
 		this.app.use(express.static('public'));
 	}
 
-    async conectarDB(){
-        await dbConnection();
-    }
+    // async conectarDB(){
+    //     await dbConnection();
+    // }
 
 	routes() {
 		this.app.use( '/api/usuarios', require('../routes/user.routes'));
+		this.app.use( '/api/destination', require('../routes/destination.routes'));
+		this.app.use( '/api/tripAdvisor', require('../routes/tripAdvisor.routes'));
 	}
 	listen() {
 		this.app.listen(this.port, () => {

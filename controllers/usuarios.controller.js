@@ -6,7 +6,7 @@ const usuariosGet=(req=request, res=response) => {
     //tengo el resto de parametros y les asigno un valor por defecto
     // const {nombre='no nombre' ,pagina='1' } = req.query;  
     res.json({
-        msg: '',
+        msg: 'aaaaaaaa',
     });
 }
 
